@@ -1,0 +1,161 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #e6fff8, #ffdab9, #f5d2d3);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  /* Flex container for side-by-side layout */
+  .container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  /* BMI Calculator */
+  .bmi-section {
+    background: rgba(255, 255, 255, 0.9);
+    max-width: 500px;
+    width: 100%;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .bmi-section h2 {
+    font-size: 2rem;
+    color: #a47e8c;
+    margin-bottom: 25px;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #666;
+  }
+  
+  .input-group input,
+  .input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-top: 5px;
+    transition: border 0.3s ease;
+  }
+  
+  .input-group input:focus,
+  .input-group select:focus {
+    border-color: #a47e8c;
+    outline: none;
+  }
+  
+  button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    background-color: #a47e8c;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #8e6d79;
+  }
+  
+  #bmi-result {
+    margin-top: 25px;
+    font-size: 1.2rem;
+    color: #444;
+    font-weight: 500;
+  }
+  
+  /* BMI Category Styling */
+  .category {
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+  
+  .category.underweight {
+    color: #3366cc;
+  }
+  
+  .category.healthy {
+    color: #2e8b57;
+  }
+  
+  .category.overweight {
+    color: #ff9933;
+  }
+  
+  .category.obesity {
+    color: #cc0000;
+  }
+  
+  /* BMI Index Panel */
+  .bmi-index {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px 25px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .bmi-index h2 {
+    font-size: 1.8rem;
+    color: #a47e8c;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .bmi-index table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+  }
+  
+  .bmi-index th,
+  .bmi-index td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .bmi-index th {
+    background-color: #f9f3f5;
+    color: #555;
+  }
+  
+  .bmi-index td {
+    background-color: #fff;
+    color: #333;
+  }
+  

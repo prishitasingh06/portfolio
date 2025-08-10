@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Advanced BMI Calculator</title>
+  <p><strong>Note:</strong> BMI (Body Mass Index) is a general guideline and may not accurately reflect your overall health or body composition. It is a tool, not a diagnosis.</p>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="bmi.css" />
+</head>
+<body>
+    <div class="container">
+      <!-- BMI Category Index Section -->
+      <section class="bmi-index">
+        <h2>📊 BMI Categories</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>BMI Range</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Underweight</td>
+              <td>Below 18.5</td>
+            </tr>
+            <tr>
+              <td>Healthy</td>
+              <td>18.5 – 24.9</td>
+            </tr>
+            <tr>
+              <td>Overweight</td>
+              <td>25.0 – 29.9</td>
+            </tr>
+            <tr>
+              <td>Obesity</td>
+              <td>30.0 or above</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+  
+      <!-- BMI Calculator Section -->
+      <section class="bmi-section">
+        <h2>BMI Calculator</h2>
+  
+        <div class="input-group">
+          <label for="weight">Weight:</label>
+          <input type="number" id="weight" placeholder="e.g. 150">
+          <select id="weight-unit">
+            <option value="kg">kg</option>
+            <option value="lb">lb</option>
+          </select>
+        </div>
+  
+        <div class="input-group">
+          <label for="height">Height:</label>
+          <input type="number" id="height" placeholder="e.g. 5.8 or 170">
+          <select id="height-unit">
+            <option value="cm">cm</option>
+            <option value="m">m</option>
+            <option value="ft">ft</option>
+          </select>
+        </div>
+  
+        <button onclick="calculateBMI()">Calculate BMI</button>
+        <p id="bmi-result"></p>
+      </section>
+    </div>
+  
+    <script src="bmi.js"></script>
+  </body>
+  
+</html>

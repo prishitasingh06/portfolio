@@ -1,0 +1,156 @@
+
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* background gradient styling */
+body
+{
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #e6fff8, #ffdab9, #f5d2d3); /* pastel ombre */
+  color: #333;
+  padding: 20px;
+}
+
+/* Header */
+header
+{
+  position: relative;  /* For positioned photo */
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1
+{
+  font-size: 3rem;
+  font-weight: 700;
+  color: #4d4d4d;
+}
+
+header p
+{
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #666;
+}
+
+/* Profile photo in top right */
+.profile-photo
+{
+  position: absolute;
+  top: 20px;       /* aligns with header padding */
+  right: 20px;     /* aligns with header padding */
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #a47e8c; /* pastel purple border to match theme */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.profile-photo:hover
+{
+  transform: scale(1.05);
+}
+
+/* Sections */
+section
+{
+  background: rgba(255, 255, 255, 0.85);
+  margin: 20px auto;
+  padding: 30px;
+  max-width: 800px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+h2
+{
+  color: #4a4a4a;
+  margin-bottom: 15px;
+}
+
+/* Projects */
+.project
+{
+  margin-bottom: 20px;
+}
+
+.project h3
+{
+  color: #a47e8c; /* muted pastel purple */
+}
+
+/* Work Experience Section */
+.work-experience
+{
+  background: rgba(255, 255, 255, 0.85);
+  margin: 20px auto;
+  padding: 30px;
+  max-width: 800px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.job
+{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.company-logo
+{
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* subtle shadow */
+}
+
+.job-info h3
+{
+  margin: 0 0 6px 0;
+  color: #a47e8c; /* pastel purple */
+  font-weight: 700;
+}
+
+.job-info p
+{
+  margin: 4px 0;
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Footer Section */
+footer-section
+{
+  padding: 30px;
+  background-color: #ffffff;
+  border: 2px solid #d1d1d1; /* Light border to separate it */
+  margin-top: 50px;
+  border-radius: 15px;
+}
+
+footer
+{
+  text-align: center;
+  padding: 20px;
+  font-size: 2rem; /* Slightly smaller font size for footer */
+  color: #b5b5d3; /* Light bluish-grey */
+  font-family: 'Dancing Script', cursive; /* cursive font */
+}
+
+/* Additional Padding and Margin for Spacing */
+footer p
+{
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #4d4d4d;
+}
