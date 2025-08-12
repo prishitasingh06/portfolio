@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calendar</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+   /*referencing ombre background colous from my portfolio*/
+    body
+    {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #e6fff8, #ffdab9, #f5d2d3);
+      color: #333;
+      padding: 20px;
+      max-width: 400px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+
+    #monthYear 
+    {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      background: rgba(164, 126, 140, 0.7); /* pastel purple overlay */
+      color: #fff;
+      padding: 0.7rem 0;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(164, 126, 140, 0.4);
+      user-select: none;
+      letter-spacing: 0.03em;
+    }
+
+    #calendar {
+      border-collapse: collapse;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    #calendar th,
+    #calendar td
+    {
+      border: 1px solid #d1d1d1;
+      padding: 12px 0;
+      width: 14.28%;
+      height: 55px;
+      font-weight: 600;
+      color: #4a4a4a;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+    }
+
+    #calendar th 
+    {
+      background-color: rgba(164, 126, 140, 0.15);
+      color: #a47e8c; /* muted pastel purple */
+      font-weight: 700;
+    }
+
+    td.empty 
+    {
+      background-color: #f5e9e9; /* pastel pinkish */
+      cursor: default;
+    }
+
+    td:hover:not(.empty) 
+    {
+      background-color: #ffdab9; /* pastel orange */
+      color: #4d4d4d;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    td.highlight-today 
+    {
+      background: linear-gradient(135deg, #a47e8c, #ffdab9);
+      color: #fff;
+      font-weight: 700;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(164, 126, 140, 0.7);
+    }
+
+    td.highlight-selected 
+    {
+      background: linear-gradient(135deg, #ffdab9, #a47e8c);
+      color: #fff;
+      font-weight: 700;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(255, 218, 185, 0.9);
+    }
+
+    button 
+    {
+      padding: 0.5rem 1.2rem;
+      margin: 0 0.5rem 1rem 0.5rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 15px;
+      background: rgba(164, 126, 140, 0.8);
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 4px 8px rgba(164, 126, 140, 0.4);
+      transition: background 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    button:hover 
+    {
+      background: rgba(164, 126, 140, 1);
+    }
+
+    /* Input form */
+    #jumpForm {
+      margin-bottom: 1.5rem;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 15px 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    #jumpForm input 
+    {
+      width: 80px;
+      padding: 8px 10px;
+      border: 1px solid #d1d1d1;
+      border-radius: 10px;
+      font-size: 1rem;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      color: #4a4a4a;
+      transition: border-color 0.3s ease;
+    }
+
+    #jumpForm input:focus 
+    {
+      outline: none;
+      border-color: #a47e8c;
+      box-shadow: 0 0 5px rgba(164,126,140,0.7);
+    }
+
+    #jumpForm label {
+      font-weight: 700;
+      color: #a47e8c;
+      font-size: 0.9rem;
+      user-select: none;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    #jumpForm .input-group 
+    {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    
+    @media (max-width: 420px) {
+      #jumpForm {
+        flex-direction: column;
+      }
+      #jumpForm input {
+        width: 100%;
+      }
+      button {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 1rem;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form id="jumpForm" aria-label="Jump to specific date">
+    <div class="input-group">
+      <label for="yearInput">Year</label>
+      <input type="number" id="yearInput" min="1900" max="2100" placeholder="YYYY" />
+    </div>
+    <div class="input-group">
+      <label for="monthInput">Month</label>
+      <input type="number" id="monthInput" min="1" max="12" placeholder="1-12" />
+    </div>
+    <div class="input-group">
+      <label for="dayInput">Day</label>
+      <input type="number" id="dayInput" min="1" max="31" placeholder="1-31" />
+    </div>
+    <button type="submit">Go</button>
+  </form>
+
+  <div id="monthYear"></div>
+  <button id="prevMonth">Previous</button>
+  <button id="nextMonth">Next</button>
+
+  <table id="calendar" aria-label="Calendar">
+    <thead>
+      <tr>
+        <th scope="col">Sun</th><th scope="col">Mon</th><th scope="col">Tue</th><th scope="col">Wed</th>
+        <th scope="col">Thu</th><th scope="col">Fri</th><th scope="col">Sat</th>
+      </tr>
+    </thead>
+    <tbody id="calendarBody"></tbody>
+  </table>
+
+  <script>
+    const monthYear = document.getElementById('monthYear');
+    const calendarBody = document.getElementById('calendarBody');
+    const prevBtn = document.getElementById('prevMonth');
+    const nextBtn = document.getElementById('nextMonth');
+    const jumpForm = document.getElementById('jumpForm');
+    const yearInput = document.getElementById('yearInput');
+    const monthInput = document.getElementById('monthInput');
+    const dayInput = document.getElementById('dayInput');
+
+    let today = new Date();
+    let currentMonth = today.getMonth();
+    let currentYear = today.getFullYear();
+    let selectedDay = null; // For highlight if user selects a day
+
+    function renderCalendar(month, year, highlightDay = null) {
+      const firstDay = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      monthYear.textContent = new Date(year, month).toLocaleString('default', {
+        month: 'long',
+        year: 'numeric',
+      });
+
+      calendarBody.innerHTML = '';
+
+      let date = 1;
+      for (let i = 0; i < 6; i++) {
+        let row = document.createElement('tr');
+
+        for (let j = 0; j < 7; j++) {
+          let cell = document.createElement('td');
+
+          if (i === 0 && j < firstDay) {
+            cell.classList.add('empty');
+            cell.textContent = '';
+          } else if (date > daysInMonth) {
+            cell.classList.add('empty');
+            cell.textContent = '';
+          } else {
+            cell.textContent = date;
+
+            // Highlighting today
+            if (
+              date === today.getDate() &&
+              year === today.getFullYear() &&
+              month === today.getMonth()
+            ) {
+              cell.classList.add('highlight-today');
+            }
+
+            // Highlight selected day
+            if (
+              highlightDay !== null &&
+              date === highlightDay &&
+              year === currentYear &&
+              month === currentMonth
+            ) {
+              cell.classList.add('highlight-selected');
+            }
+
+            date++;
+          }
+          row.appendChild(cell);
+        }
+        calendarBody.appendChild(row);
+        if (date > daysInMonth) break;
+      }
+    }
+
+    prevBtn.addEventListener('click', () => 
+    {
+      currentMonth--;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+      }
+      selectedDay = null;
+      renderCalendar(currentMonth, currentYear);
+    });
+
+    nextBtn.addEventListener('click', () =>
+    {
+      currentMonth++;
+      if (currentMonth > 11) 
+      {
+        currentMonth = 0;
+        currentYear++;
+      }
+      selectedDay = null;
+      renderCalendar(currentMonth, currentYear);
+    });
+
+    jumpForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const y = parseInt(yearInput.value, 10);
+      const m = parseInt(monthInput.value, 10);
+      const d = dayInput.value ? parseInt(dayInput.value, 10) : null;
+
+      if (
+        isNaN(y) || y < 1900 || y > 2100 ||
+        isNaN(m) || m < 1 || m > 12 ||
+        (d !== null && (d < 1 || d > 31))
+      ) {
+        alert('Please enter valid Year (1900-2100), Month (1-12), and optional Day (1-31)');
+        return;
+      }
+
+      // Checking validity of the day for the given month and year
+      const maxDay = new Date(y, m, 0).getDate();
+      if (d !== null && d > maxDay) {
+        alert(`Day must be between 1 and ${maxDay} for the selected month.`);
+        return;
+      }
+
+      currentYear = y;
+      currentMonth = m - 1;
+      selectedDay = d;
+
+      renderCalendar(currentMonth, currentYear, selectedDay);
+    });
+
+    // Initial render
+    renderCalendar(currentMonth, currentYear);
+  </script>
+</body>
+</html>
