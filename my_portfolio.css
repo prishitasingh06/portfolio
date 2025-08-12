@@ -154,3 +154,41 @@ footer p
   font-size: 1rem;
   color: #4d4d4d;
 }
+.github-button-container {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.github-button {
+  display: inline-flex;
+  align-items: center;
+  background-color: #a47e8c;  /* pastel purple */
+  color: white;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 12px rgba(164, 126, 140, 0.4);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.github-button:hover,
+.github-button:focus {
+  background-color: #8b6576;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(139, 101, 118, 0.6);
+}
+
+.github-button svg {
+  fill: white;
+  margin-right: 8px;
+  transition: transform 0.3s ease;
+}
+
+.github-button:hover svg {
+  transform: scale(1.1);
+}
+
