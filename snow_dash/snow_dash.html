@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Snow Dash ❄️🏂🗻</title>
+  <style>
+    canvas 
+    {
+      background: linear-gradient(#87ceeb, #1e90ff);
+      display: block;
+      margin: 0 auto;
+      border: 2px solid #000;
+    }
+    body 
+    {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background: #222;
+      color: white;
+      user-select: none;
+    }
+    #replay_botton 
+    {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Snow Dash</h1>
+  <p>Use ← and → to move. Press Space to jump.</p>
+  <canvas id="gameCanvas" width="800" height="400"></canvas>
+  <button id="replay_botton">Replay</button>
+  <script src="snow_dash.js"></script>
+</body>
+</html>
