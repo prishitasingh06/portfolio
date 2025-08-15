@@ -230,5 +230,29 @@ footer p
 .linkedin-button:hover svg {
   transform: scale(1.1);
 }
+/* Project Button Styling */
+.project-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #a47e8c; /* pastel purple */
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 12px rgba(164, 126, 140, 0.3);
+}
+
+.project-button:hover,
+.project-button:focus {
+  background-color: #8b6576;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(139, 101, 118, 0.4);
+}
+
 
 
