@@ -191,4 +191,44 @@ footer p
 .github-button:hover svg {
   transform: scale(1.1);
 }
+ /* for my LinkedIn profile */
+.linkedin-button-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.linkedin-button {
+  display: inline-flex;
+  align-items: center;
+  background-color: #0077b5; /* LinkedIn blue */
+  color: white;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 12px rgba(0, 119, 181, 0.4);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  margin-left: 10px; /* spacing from GitHub button */
+}
+
+.linkedin-button:hover,
+.linkedin-button:focus {
+  background-color: #005983;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 89, 131, 0.6);
+}
+
+.linkedin-button svg {
+  fill: white;
+  margin-right: 8px;
+  transition: transform 0.3s ease;
+}
+
+.linkedin-button:hover svg {
+  transform: scale(1.1);
+}
+
 
