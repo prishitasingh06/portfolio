@@ -248,11 +248,55 @@ footer p
 }
 
 .project-button:hover,
-.project-button:focus {
+.project-button:focus 
+{
   background-color: #8b6576;
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(139, 101, 118, 0.4);
 }
+.email-contact 
+{
+  text-align: center;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 40px 20px;
+  margin: 50px auto;
+  max-width: 800px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.email-contact h2 
+{
+  font-size: 2rem;
+  color: #4a4a4a;
+  margin-bottom: 15px;
+}
+
+.email-contact p 
+{
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.email-link 
+{
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #a47e8c; /* pastel purple */
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.email-link:hover,
+.email-link:focus 
+{
+  color: #8b6576;
+  border-color: #8b6576;
+}
+
 
 
 
